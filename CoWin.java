@@ -30,9 +30,9 @@ class CoWin{
         
         
 
-
+        System.out.println("\nCoWin Portal initialized....\n");
         while(true) {
-            System.out.println("\nCoWin Portal initialized....\n---------------------------------\n 1. Add Vaccine\n 2. Register Hospital\n 3. Register Citizen\n 4. Add Slot for Vaccination\n 5. Book Slot for Vaccination\n 6. List all slots for a hospital\n 7. Check Vaccination Status\n 8. Exit\n ---------------------------------"); 
+            System.out.println("---------------------------------\n 1. Add Vaccine\n 2. Register Hospital\n 3. Register Citizen\n 4. Add Slot for Vaccination\n 5. Book Slot for Vaccination\n 6. List all slots for a hospital\n 7. Check Vaccination Status\n 8. Exit\n ---------------------------------"); 
             int option=sc.nextInt();
 
             
@@ -293,10 +293,10 @@ class vaccine{
         System.out.print(this.name);
         System.out.print(", Number of doses: ");
         System.out.print(this.no_of_doses);
-        if(no_of_doses!=1){
+        
             System.out.print(", Gap Between Doses: ");
             System.out.print(this.gap);
-        }
+        
     }
     int retdose(){
         return this.no_of_doses;
@@ -522,5 +522,4 @@ class slot{
     }
 
 }
-
 
