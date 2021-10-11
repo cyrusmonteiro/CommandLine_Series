@@ -136,6 +136,8 @@ class CoWin{
                         }
                         System.out.println("Enter hospital id: ");
                         int hid=sc.nextInt();
+
+
                         for(jj=0;jj<h_no;jj++){
                             if(h[jj].hidcheck(hid)==true){
                                 h[jj].printallslots(v);
@@ -156,7 +158,15 @@ class CoWin{
                             }
                         }
 
-
+                        if(c[tt].returndue()>h[kk].returnday(slotoption)){
+                            System.out.println("No Slots Avalable");
+                            break;
+                        }
+                        
+                        if(h[kk].retquantity(slotoption)==0){
+                            System.out.println("No Slots Avalable");
+                            break;
+                        }
                         int vid,dday;
                         vid=h[kk].returnvacindex(slotoption);
                         dday=h[kk].returnday(slotoption);
@@ -199,6 +209,16 @@ class CoWin{
                             if(h[kk].hidcheck(hid)==true){
                                 break;
                             }
+                        }
+
+                        if(c[tt].returndue()>h[kk].returnday(slotoption)){
+                            System.out.println("No Slots Avalable");
+                            break;
+                        }
+                        
+                        if(h[kk].retquantity(slotoption)==0){
+                            System.out.println("No Slots Avalable");
+                            break;
                         }
 
 
@@ -333,8 +353,10 @@ class hospital{
         
     }
     void printallslots(vaccine[] v){
-        for(int xx=0;xx<s_no;xx++)
+        for(int xx=0;xx<s_no;xx++){
+            System.out.print(xx+". ");
             s[xx].printdailydata(v);
+        }
     }
     boolean pincheck(int p){
         if(pin==p)
@@ -367,6 +389,9 @@ class hospital{
                 return true;
         }
         return false;
+    }
+    int retquantity(int slotoption){
+        return s[slotoption].retq();
     }
 
 
@@ -447,6 +472,9 @@ class citizen{
         }
         return false;
     }
+    int returndue(){
+        return this.due;
+    }
 
 }
 
@@ -488,6 +516,9 @@ class slot{
         if(vac.equals(v[vac_index].retname())==true)
             return true;
         return false;
+    }
+    int retq(){
+        return this.quantity;
     }
 
 }
