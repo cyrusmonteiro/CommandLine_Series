@@ -26,9 +26,6 @@ public class one {
             array[i].setter(isbn, bn, name);
         }
         bubbleSort(array);
-        for(int i=0;i<n;i++){
-            System.out.println(array[i].gettitle().getname()+","+array[i].getisbn().getnumber()+","+array[i].getbarcode().getnumber());
-        }
 
         book arrangement[][]=new book[k][n/k];
         for(int i=0;i<k;i++){
@@ -38,10 +35,12 @@ public class one {
         }
         int ii=0;
         for(int i=0;i<k;i++){
+            System.out.print("Rack"+i+": ");
             for(int j=0;j<n/k;j++){
                 arrangement[i][j]=array[ii];
                 ii++;
-                System.out.println("("+arrangement[i][j].gettitle().getname()+","+arrangement[i][j].getisbn().getnumber()+","+arrangement[i][j].getbarcode().getnumber()+")");
+                
+                System.out.print("("+arrangement[i][j].gettitle().getname()+","+arrangement[i][j].getisbn().getnumber()+","+arrangement[i][j].getbarcode().getnumber()+")");
             }
             System.out.println();
         }
